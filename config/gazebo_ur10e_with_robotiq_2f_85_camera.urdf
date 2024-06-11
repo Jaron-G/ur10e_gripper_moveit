@@ -394,7 +394,7 @@
         <origin rpy="0 0 0" xyz="0 0 0.1807" />
         <axis xyz="0 0 1" />
         <limit effort="330.0" lower="-6.283185307179586" upper="6.283185307179586" velocity="2.0943951023931953" />
-        <dynamics damping="0" friction="0" />
+        <dynamics damping="10" friction="0.1" />
     </joint>
     <joint name="shoulder_lift_joint" type="revolute">
         <parent link="shoulder_link" />
@@ -402,7 +402,7 @@
         <origin rpy="1.570796327 0 0" xyz="0 0 0" />
         <axis xyz="0 0 1" />
         <limit effort="330.0" lower="-6.283185307179586" upper="6.283185307179586" velocity="2.0943951023931953" />
-        <dynamics damping="0" friction="0" />
+        <dynamics damping="10" friction="0.1" />
     </joint>
     <joint name="elbow_joint" type="revolute">
         <parent link="upper_arm_link" />
@@ -410,7 +410,7 @@
         <origin rpy="0 0 0" xyz="-0.6127 0 0" />
         <axis xyz="0 0 1" />
         <limit effort="150.0" lower="-3.141592653589793" upper="3.141592653589793" velocity="3.141592653589793" />
-        <dynamics damping="0" friction="0" />
+        <dynamics damping="10" friction="0.1" />
     </joint>
     <joint name="wrist_1_joint" type="revolute">
         <parent link="forearm_link" />
@@ -418,7 +418,7 @@
         <origin rpy="0 0 0" xyz="-0.57155 0 0.17415" />
         <axis xyz="0 0 1" />
         <limit effort="56.0" lower="-6.283185307179586" upper="6.283185307179586" velocity="3.141592653589793" />
-        <dynamics damping="0" friction="0" />
+        <dynamics damping="10" friction="0.1" />
     </joint>
     <joint name="wrist_2_joint" type="revolute">
         <parent link="wrist_1_link" />
@@ -426,7 +426,7 @@
         <origin rpy="1.570796327 0 0" xyz="0 -0.11985 -2.458164590756244e-11" />
         <axis xyz="0 0 1" />
         <limit effort="56.0" lower="-6.283185307179586" upper="6.283185307179586" velocity="3.141592653589793" />
-        <dynamics damping="0" friction="0" />
+        <dynamics damping="10" friction="0.1" />
     </joint>
     <joint name="wrist_3_joint" type="revolute">
         <parent link="wrist_2_link" />
@@ -434,7 +434,7 @@
         <origin rpy="1.570796326589793 3.141592653589793 3.141592653589793" xyz="0 0.11655 -2.390480459346185e-11" />
         <axis xyz="0 0 1" />
         <limit effort="56.0" lower="-6.283185307179586" upper="6.283185307179586" velocity="3.141592653589793" />
-        <dynamics damping="0" friction="0" />
+        <dynamics damping="10" friction="0.1" />
     </joint>
     <!-- ROS-Industrial 'base' frame: base_link to UR 'Base' Coordinates transform -->
     <link name="base" />
