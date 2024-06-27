@@ -143,7 +143,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://table/meshes/table_base_link.STL" />
+          filename="package://table/meshes/table_base_link.dae" />
       </geometry>
       <material
         name="">
@@ -795,6 +795,18 @@
     </joint>
     <!-- Create camera reference frame -->
     <link name="camera_link">
+    	<visual>
+    	    <origin xyz="0.0 0.0 0.0" rpy="-1.5708 1.5708 0" />
+            <geometry>
+                <mesh filename="package://scanner/meshes/visual/scanner.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="-1.5708 1.5708 0" />
+            <geometry>
+                <mesh filename="package://scanner/meshes/collision/scanner.stl" />
+            </geometry>
+        </collision>
         <inertial>
             <mass value="0.1" />
             <origin xyz="0 0 0" />
@@ -803,14 +815,11 @@
                         izz="0.01" />
         </inertial>
 
-        <visual>
+        <!-- <visual>
             <origin xyz=" 0 0 0 " rpy="0 0 0" />
             <geometry>
                 <box size="0.10 0.30 0.20" />
             </geometry>
-            <material name="black">
-                <color rgba="0.1 0.1 0.1 0.8" />
-            </material>
         </visual>
 
         <collision>
@@ -818,7 +827,7 @@
             <geometry>
                 <box size="0.10 0.30 0.20" />
             </geometry>
-        </collision>
+        </collision> -->
     </link>
 
     <!-- 在RVIZ中显示点云位姿错误，此处加入一个空连杆和空关节，用于调整点云tf位姿 -->
