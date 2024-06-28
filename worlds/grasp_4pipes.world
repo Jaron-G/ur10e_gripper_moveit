@@ -1,0 +1,372 @@
+<sdf version='1.7'>
+  <world name='default'>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <wind/>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <state world_name='default'>
+      <sim_time>311 226000000</sim_time>
+      <real_time>118 672353964</real_time>
+      <wall_time>1719574697 258157200</wall_time>
+      <iterations>117273</iterations>
+      <model name='L_pipe'>
+        <pose>0.386559 0.560375 0.999967 0.000791 8.5e-05 -0.553539</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0.386559 0.560375 0.999967 0.000791 8.5e-05 -0.553539</pose>
+          <velocity>-1.3e-05 2.9e-05 0.00485 -0.005243 0.094678 -0.000948</velocity>
+          <acceleration>3.78407 0.154476 0.623644 2.08574 0.875216 0.826431</acceleration>
+          <wrench>0.117041 0.004778 0.019289 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='L_pipe_0'>
+        <pose>0.465286 0.43001 1.04001 -3.14045 -0.000677 0.727169</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0.465286 0.43001 1.04001 -3.14045 -0.000677 0.727169</pose>
+          <velocity>-0.006982 -0.001701 -0.013806 0.039736 -0.174834 0.001412</velocity>
+          <acceleration>-0.642713 -0.275273 -8.81475 0.71399 -1.26771 -0.380495</acceleration>
+          <wrench>-0.019879 -0.008514 -0.27264 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='ground_plane'>
+        <pose>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='t_pipe'>
+        <pose>0.344964 0.359259 0.999991 -4.4e-05 -5.1e-05 -0.658556</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0.344964 0.359259 0.999991 -4.4e-05 -5.1e-05 -0.658556</pose>
+          <velocity>0 0 -0.009038 -0.066055 -0.013245 -1e-06</velocity>
+          <acceleration>0 0 -9.8 -0 -0 -0.001042</acceleration>
+          <wrench>0 0 -0.482777 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='t_pipe_1'>
+        <pose>0.58773 0.345749 1.04 -3.14159 0 0.28652</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0.58773 0.345749 1.04 -3.14159 0 0.28652</pose>
+          <velocity>0.003077 0.003312 0.008847 -0.082792 0.076913 -0</velocity>
+          <acceleration>3.07675 3.31189 13.2704 1.00672 1.38985 3.13844</acceleration>
+          <wrench>0.15157 0.163154 0.653739 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose>0 0 10 0 -0 0</pose>
+      </light>
+    </state>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>3.69604 0.429464 2.6178 0 0.520827 2.93183</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+    <model name='t_pipe'>
+      <static>0</static>
+      <link name='link'>
+        <inertial>
+          <pose>0.0465 0.04 0.02 0 -0 0</pose>
+          <mass>0.049263</mass>
+          <inertia>
+            <ixx>3.2494e-05</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>4.4475e-05</iyy>
+            <iyz>0</iyz>
+            <izz>5.166e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/catkin_ws/src/models/t_pipe/meshes/pipe.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode>
+                <mu>3.99</mu>
+                <mu2>3.99</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/catkin_ws/src/models/t_pipe/meshes/pipe.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>0.231984 -0.38795 0 0 -0 0</pose>
+    </model>
+    <model name='t_pipe_1'>
+      <static>0</static>
+      <link name='link'>
+        <inertial>
+          <pose>0.0465 0.04 0.02 0 -0 0</pose>
+          <mass>0.049263</mass>
+          <inertia>
+            <ixx>3.2494e-05</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>4.4475e-05</iyy>
+            <iyz>0</iyz>
+            <izz>5.166e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/catkin_ws/src/models/t_pipe/meshes/pipe.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode>
+                <mu>3.99</mu>
+                <mu2>3.99</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/catkin_ws/src/models/t_pipe/meshes/pipe.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>0.221725 -0.212369 0 0 -0 0</pose>
+    </model>
+    <model name='L_pipe'>
+      <static>0</static>
+      <link name='link'>
+        <inertial>
+          <pose>0.03438 0.03438 0.02 0 -0 0</pose>
+          <mass>0.03093</mass>
+          <inertia>
+            <ixx>1.574e-05</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1.574e-05</iyy>
+            <iyz>0</iyz>
+            <izz>2.0558e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/catkin_ws/src/models/L_pipe/meshes/L_pipe.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.99</mu>
+                <mu2>0.99</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/catkin_ws/src/models/L_pipe/meshes/L_pipe.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>-0.08019 -0.373394 0 0 -0 0</pose>
+    </model>
+    <model name='L_pipe_0'>
+      <static>0</static>
+      <link name='link'>
+        <inertial>
+          <pose>0.03438 0.03438 0.02 0 -0 0</pose>
+          <mass>0.03093</mass>
+          <inertia>
+            <ixx>1.574e-05</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1.574e-05</iyy>
+            <iyz>0</iyz>
+            <izz>2.0558e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/catkin_ws/src/models/L_pipe/meshes/L_pipe.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.99</mu>
+                <mu2>0.99</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/catkin_ws/src/models/L_pipe/meshes/L_pipe.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>-0.554726 -0.155502 0 0 -0 0</pose>
+    </model>
+  </world>
+</sdf>
