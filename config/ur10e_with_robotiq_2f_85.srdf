@@ -10,7 +10,7 @@
     <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
     <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
     <group name="manipulator">
-        <chain base_link="base_link" tip_link="tool0"/>
+        <chain base_link="base_link" tip_link="finger_center"/>
     </group>
     <group name="gripper">
         <joint name="robotiq_85_base_joint"/>
@@ -32,11 +32,11 @@
         <joint name="wrist_2_joint" value="-1.5707"/>
         <joint name="wrist_3_joint" value="-1.5707"/>
     </group_state>
-    <group_state name="open" group="gripper">
-        <joint name="robotiq_85_left_knuckle_joint" value="0"/>
-    </group_state>
     <group_state name="close" group="gripper">
         <joint name="robotiq_85_left_knuckle_joint" value="0.8028"/>
+    </group_state>
+    <group_state name="open" group="gripper">
+        <joint name="robotiq_85_left_knuckle_joint" value="0"/>
     </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="robotiq_gripper" parent_link="tool0" group="gripper" parent_group="manipulator"/>
@@ -52,6 +52,7 @@
     <disable_collisions link1="base_link_inertia" link2="shoulder_link" reason="Adjacent"/>
     <disable_collisions link1="base_link_inertia" link2="upper_arm_link" reason="Never"/>
     <disable_collisions link1="base_link_inertia" link2="wrist_1_link" reason="Never"/>
+    <disable_collisions link1="base_link_inertia" link2="wrist_2_link" reason="Never"/>
     <disable_collisions link1="forearm_link" link2="upper_arm_link" reason="Adjacent"/>
     <disable_collisions link1="forearm_link" link2="wrist_1_link" reason="Adjacent"/>
     <disable_collisions link1="robotiq_85_base_link" link2="robotiq_85_left_finger_link" reason="Never"/>

@@ -736,6 +736,12 @@
             <offset>0.0</offset>
         </plugin>
     </gazebo>
+    <link name="finger_center" />
+    <joint name="finger_center_joint" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0.16" />
+        <parent link="tool0" />
+        <child link="finger_center" />
+    </joint>
     <transmission name="trans_robotiq_85_right_knuckle_joint">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="robotiq_85_right_knuckle_joint">

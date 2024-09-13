@@ -117,11 +117,11 @@
     <link name="world"/>
     <joint name="world_table_base_joint" type="fixed">
         <parent link="world"/>
-        <child link="table_base_link"/>
+        <child link="base_link"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
     </joint>
     
-   <link
+   <!-- <link
     name="table_base_link">
     <inertial>
       <origin
@@ -143,7 +143,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://table/meshes/table_base_link.STL" />
+          filename="package://table/meshes/table_base_link.dae" />
       </geometry>
       <material
         name="">
@@ -219,7 +219,7 @@
         <parent link="table_link"/>
         <child link="base_link"/>
         <origin rpy="0 0 0" xyz="0 0 0.010"/>
-    </joint>
+    </joint> -->
     
     <link name="base_link" />
     <link name="base_link_inertia">
@@ -394,7 +394,7 @@
         <origin rpy="0 0 0" xyz="0 0 0.1807" />
         <axis xyz="0 0 1" />
         <limit effort="330.0" lower="-6.283185307179586" upper="6.283185307179586" velocity="2.0943951023931953" />
-        <dynamics damping="0" friction="0" />
+        <dynamics damping="0.3" friction="0.1" />
     </joint>
     <joint name="shoulder_lift_joint" type="revolute">
         <parent link="shoulder_link" />
@@ -402,7 +402,7 @@
         <origin rpy="1.570796327 0 0" xyz="0 0 0" />
         <axis xyz="0 0 1" />
         <limit effort="330.0" lower="-6.283185307179586" upper="6.283185307179586" velocity="2.0943951023931953" />
-        <dynamics damping="0" friction="0" />
+        <dynamics damping="0.3" friction="0.1" />
     </joint>
     <joint name="elbow_joint" type="revolute">
         <parent link="upper_arm_link" />
@@ -410,7 +410,7 @@
         <origin rpy="0 0 0" xyz="-0.6127 0 0" />
         <axis xyz="0 0 1" />
         <limit effort="150.0" lower="-3.141592653589793" upper="3.141592653589793" velocity="3.141592653589793" />
-        <dynamics damping="0" friction="0" />
+        <dynamics damping="0.3" friction="0.1" />
     </joint>
     <joint name="wrist_1_joint" type="revolute">
         <parent link="forearm_link" />
@@ -418,7 +418,7 @@
         <origin rpy="0 0 0" xyz="-0.57155 0 0.17415" />
         <axis xyz="0 0 1" />
         <limit effort="56.0" lower="-6.283185307179586" upper="6.283185307179586" velocity="3.141592653589793" />
-        <dynamics damping="0" friction="0" />
+        <dynamics damping="0.3" friction="0.1" />
     </joint>
     <joint name="wrist_2_joint" type="revolute">
         <parent link="wrist_1_link" />
@@ -426,7 +426,7 @@
         <origin rpy="1.570796327 0 0" xyz="0 -0.11985 -2.458164590756244e-11" />
         <axis xyz="0 0 1" />
         <limit effort="56.0" lower="-6.283185307179586" upper="6.283185307179586" velocity="3.141592653589793" />
-        <dynamics damping="0" friction="0" />
+        <dynamics damping="0.3" friction="0.1" />
     </joint>
     <joint name="wrist_3_joint" type="revolute">
         <parent link="wrist_2_link" />
@@ -434,7 +434,7 @@
         <origin rpy="1.570796326589793 3.141592653589793 3.141592653589793" xyz="0 0.11655 -2.390480459346185e-11" />
         <axis xyz="0 0 1" />
         <limit effort="56.0" lower="-6.283185307179586" upper="6.283185307179586" velocity="3.141592653589793" />
-        <dynamics damping="0" friction="0" />
+        <dynamics damping="0.3" friction="0.1" />
     </joint>
     <!-- ROS-Industrial 'base' frame: base_link to UR 'Base' Coordinates transform -->
     <link name="base" />
@@ -462,11 +462,12 @@
         <origin rpy="1.5707963267948966 0 1.5707963267948966" xyz="0 0 0" />
         <parent link="flange" />
         <child link="tool0" />
-    </joint>
+    </joint>   
+    
     <joint name="robotiq_85_base_joint" type="fixed">
         <parent link="tool0" />
         <child link="robotiq_85_base_link" />
-        <origin rpy="0 -1.5707963267948966 3.141592653589793" xyz="0 0 0.004" />
+        <origin rpy="0 -1.5707963267948966 3.141592653589793" xyz="0 0 0.007" />
     </joint>
     <link name="robotiq_85_base_link">
         <visual>
@@ -794,36 +795,28 @@
     </transmission>
 
     <joint name="camera_joint" type="fixed">
-        <origin xyz="0.3 -0.8 1.0" rpy="0 1.5708 0" />
-        <parent link="base_link"/>
-        <child link="camera_link"/>
+        <parent link="wrist_3_link" />
+        <child link="camera_link" />
+        <origin xyz="0 0.0 0.15" rpy="0 -1.5708 0"/>
     </joint>
+
     <!-- Create camera reference frame -->
     <link name="camera_link">
-        <inertial>
-            <mass value="0.1" />
-            <origin xyz="0 0 0" />
-            <inertia ixx="0.01" ixy="0.0" ixz="0.0"
-                        iyy="0.01" iyz="0.0"
-                        izz="0.01" />
-        </inertial>
-
         <visual>
-            <origin xyz=" 0 0 0 " rpy="1.5708 0 0" />
             <geometry>
-                <box size="0.10 0.30 0.20" />
+                <cylinder radius="0.01" length="0.01" />
             </geometry>
-            <material name="black">
-                <color rgba="0.1 0.1 0.1 0.8" />
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <material name="red">
+                <color rgba="0.8 0.2 0.0 0.8" />
             </material>
         </visual>
-
-        <collision>
-            <origin xyz="0.0 0.0 0.0" rpy="1.5708 0 0" />
+        <!-- <collision>
             <geometry>
-                <box size="0.10 0.30 0.20" />
+                <cylinder radius="0.02" length="0.03" />
             </geometry>
-        </collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        </collision> -->
     </link>
 
     <!-- 在RVIZ中显示点云位姿错误，此处加入一个空连杆和空关节，用于调整点云tf位姿 -->
@@ -844,8 +837,8 @@
             <camera name="head">
                 <horizontal_fov>1.3962634</horizontal_fov>
                 <image>
-                    <width>640</width>
-                    <height>480</height>
+                    <width>1280</width>
+                    <height>1280</height>
                     <format>R8G8B8</format>
                 </image>
                 <clip>
@@ -888,6 +881,7 @@
 
         </sensor>
     </gazebo>
+
     <gazebo>
      <plugin name="gazebo_grasp_fix" filename="libgazebo_grasp_fix.so">
            <arm>
@@ -904,11 +898,10 @@
        <update_rate>130</update_rate>
        <grip_count_threshold>2</grip_count_threshold>
        <max_grip_count>8</max_grip_count>
-       <release_tolerance>0.01</release_tolerance>
+       <release_tolerance>0.001</release_tolerance>
        <disable_collisions_on_attach>true</disable_collisions_on_attach>
        <contact_topic>__default_topic__</contact_topic>
      </plugin>
-   </gazebo>
-
+    </gazebo>
 </robot>
 
